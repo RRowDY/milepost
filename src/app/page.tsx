@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { HomeAuthSection } from "./home-auth-section";
 
 export default function HomePage() {
@@ -18,11 +19,16 @@ export default function HomePage() {
         <CardHeader>
           <CardTitle>Portal Lite</CardTitle>
           <CardDescription>
-            Portfolio client portal — Phase 0 bootstrap. All data synthetic;
-            sandbox coming in Phase 1.
+            Portfolio client portal. Try a synthetic sandbox — all data is
+            demo-only and expires.
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col gap-3">
+          <form action="/api/demo/start" method="post">
+            <Button type="submit" className="w-full">
+              Try sandbox
+            </Button>
+          </form>
           <Suspense
             fallback={
               <p className="text-sm text-muted-foreground">Loading session…</p>
